@@ -1,0 +1,12 @@
+<div class="galerie">
+    <% for(let im of locals.imagini){ %>
+        <figure class="galerie_item">
+            <picture>
+                <source srcset="<%- im.mic %>" media="(max-width:500px)"/>
+                <img src="<%- im.mare %>" alt="<%- im.titlu %>" style="width:100%">
+            </picture>
+            <figcaption> <%- im.text_descriere %>  </figcaption>
+        </figure>
+        
+    <% } %>  
+</div>

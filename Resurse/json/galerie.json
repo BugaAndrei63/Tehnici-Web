@@ -1,0 +1,118 @@
+{
+    "cale_galerie":"Resurse/Imagini/galerie",
+    "imagini": [
+        {
+            "fisier":"skyrim.jpg",
+            "titlu":"Skyrim",
+            "text_descriere":"Joc sabiuta",
+            "anotimp":"vara",
+            "galerie_animata":"true"
+        },
+        {
+            "fisier":"borderlands.jpg",
+            "titlu":"Borderlands 2",
+            "text_descriere":"Joc pewpew",
+            "anotimp":"iarna",
+            "galerie_animata":"true"
+        },
+        {
+            "fisier":"cod.jpg",
+            "titlu":"Call of Duty",
+            "text_descriere":"Joc pewpew",
+            "anotimp":"vara",
+            "galerie_animata":"true"
+        },
+        {
+            "fisier":"csgo.jpg",
+            "titlu":"CSGO",
+            "text_descriere":"Joc pewpew",
+            "anotimp":"iarna",
+            "galerie_animata":"true"
+        },
+        {
+            "fisier":"bf3.jpg",
+            "titlu":"Battlefield 3",
+            "text_descriere":"Joc pewpew",
+            "anotimp":"vara",
+            "galerie_animata":"true"
+        },
+        {
+            "fisier":"valorant.jpg",
+            "titlu":"Valorant",
+            "text_descriere":"Joc pewpew",
+            "anotimp":"toamna",
+            "galerie_animata":"true"
+        }
+        ,
+        {
+            "fisier":"minecraft.jpg",
+            "titlu":"Minecraft",
+            "text_descriere":"Joc build build",
+            "anotimp":"toamna",
+            "galerie_animata":"true"
+        }
+        ,
+        {
+            "fisier":"dyinglight.jpg",
+            "titlu":"Dying Light",
+            "text_descriere":"Joc nom nom",
+            "anotimp":"toamna",
+            "galerie_animata":"true"
+        }
+        ,
+        {
+            "fisier":"deadspace.jpg",
+            "titlu":"Dead Space 3",
+            "text_descriere":"Joc horhorror",
+            "anotimp":"toamna",
+            "galerie_animata":"true"
+        }
+        ,
+        {
+            "fisier":"farcry.jpg",
+            "titlu":"FarCry 6",
+            "text_descriere":"Joc bumbum",
+            "anotimp":"toamna",
+            "galerie_animata":"true"
+        }
+        ,
+        {
+            "fisier":"titanfall.jpg",
+            "titlu":"Titanfall",
+            "text_descriere":"Joc pewpew",
+            "anotimp":"toamna",
+            "galerie_animata":"true"
+        }
+        ,
+        {
+            "fisier":"darksouls.jpg",
+            "titlu":"Dark Souls",
+            "text_descriere":"Joc slashslash",
+            "anotimp":"toamna",
+            "galerie_animata":"true"
+        }
+        ,
+        {
+            "fisier":"fnv.jpg",
+            "titlu":"Fallout New Vegas",
+            "text_descriere":"Joc pp",
+            "anotimp":"vara"
+        }
+        ,
+        {
+            "fisier":"acv.jpg",
+            "titlu":"AssassinsCreed Valhalla",
+            "text_descriere":"Joc slashslash",
+            "anotimp":"toamna"
+        }
+        ,
+        {
+            "fisier":"sc2.jpg",
+            "titlu":"Starcraft 2",
+            "text_descriere":"Joc strat strat",
+            "anotimp":"toamna"
+        }
+    ]
+
+
+}

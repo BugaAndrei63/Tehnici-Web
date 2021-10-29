@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta name="keywords" content="games, indie, video games,jocuri, grtais, free, all, promotions, genres, action, horror">
+        <meta name="description" content="Search for your favourite games!">
+        
+        <title>Games</title>
+        <%- include("../fragmente/head") %>
+        <script>
+            window.onload = function(){
+                let btn = document.getElementById("filtreaza");
+                btn.onclick = function(){
+
+                    //input range
+                    let elemInput = document.getElementById("pretminmax");
+                    let pretminmax = elemInput.value;
+                    //input range
+
+                    //input textarea
+                    elemInput = document.getElementById("numejoc");
+                    let namejoc = elemInput.value;
+                    //input textarea
+
+                    //input radbuttons
+                    elemInput = document.querySelector('input[name=gr_rad]:checked');
+                    let genre = elemInput.value;
+                    //input radbuttons
+
+                    //input checkbox
+                    elemInput = document.querySelectorAll('input[name=gr_chck]:checked');
+                    let subgenre = elemInput;
+                    //input checkbox
+
+                    //input text
+                    elemInput = document.getElementById("os");
+                    let os = elemInput.value;
+                    //input text
+
+                    //input simplu
+                    elemInput = document.getElementById("age");
+                    let age = elemInput.value;
+                    //input simplu
+
+                    //input multiplu
+                    elemInput = document.getElementsByName("multi");
+                    let nos = [];
+                    for(let i = 0; i < elemInput.length ; i++)
+                    {
+                        
+                        if(elemInput[i].selected)
+                        {
+                            nos.push(elemInput[i].value)
+                        }
+
+                    }
+                    //input multiplu
+                    
+
+                    let games = document.getElementsByClassName("game");
+                    let gameshead = document.getElementsByClassName("gamenameheading");
+
+
+
+                    for(let index = 0;index<games.length;index++)
+                    {
+                        gameshead[index].style.display = "none";
+                        games[index].style.display = "none";
+                        let pret = parseFloat(games[index].getElementsByClassName("gameprice")[0].innerHTML);
+                        let name = String(gameshead[index].getElementsByClassName("gamename")[0].innerHTML);
+                        let genre_game = String(games[index].getElementsByClassName("gamegenre")[0].innerHTML);
+                        let subgenre_game = String(games[index].getElementsByClassName("subgamegenre")[0].innerHTML);
+                        let os_game = games[index].getElementsByClassName("gameos")[0].innerHTML;
+                        let age_res = games[index].getElementsByClassName("gameage")[0].innerHTML;
+                        let nos_game = games[index].getElementsByClassName("gameos")[0].innerHTML;
+
+                        //input range conditie
+                        var conditie = pret <= pretminmax;
+                        //input range conditie
+
+                        //input textarea conditie
+                        var conditie2 = name == namejoc;
+                        //input textarea conditie
+
+                        //input radbuttons conditie
+                        var conditie3 = genre == genre_game;
+                        //input radbuttons conditie
+
+                        var conditie4 = false;
+                        var conditie5 = false;
+                        var conditie6 = false;
+                        var conditie7 = true;
+
+                        //input multiplu conditie
+                        for(let i = 0; i < nos.length ; i++)
+                        {
+                            if(nos_game.includes(nos[i]))
+                            {
+                                conditie7 = false;
+                            }
+                        }
+                        //input multiplu conditie
+
+                        //input simplu conditie
+                        if(age_res != '18+' && age == 1)
+                        {
+                            conditie6 = true;
+                        }else if(age == 0 )
+                        {
+                            conditie6 = true;
+                        }
+                        //input simplu conditie
+
+                        //input text conditie
+                        if(os_game.includes(os))
+                        {
+                            conditie5 = true;
+                        }
+                        //input text conditie
+
+                        //input checkbox conditie
+                        for(let i = 0; i < subgenre.length; i++)
+                        {
+                            
+                            if(subgenre[i].value == subgenre_game)
+                            {
+                                conditie4 = true;
+                            }
+                        }
+                        //input checkbox conditie
+
+                        //input radbuttons conditie
+                        if(genre == 1)
+                        {
+                            conditie3 = true;
+                        }
+                        //input radbuttons conditie
+                        
+                        //input textarea conditie
+                        if(namejoc == "")
+                        {
+                            conditie2 = true;
+                        }
+                        //input textarea conditie
+                        
+                        let conditieTotala = conditie && conditie2 && conditie3 && conditie4 && conditie5 && conditie6 && conditie7;
+                        
+                        if(conditieTotala)
+                        {
+                            games[index].style.display = "grid";
+                            gameshead[index].style.display = "block";
+                        }
+                    }
+
+                    
+                }
+
+                let btc = document.getElementById("sorteazaCresc");
+                btc.onclick = function(){
+                
+                    var games = document.getElementsByClassName("game");
+                    var gameshead = document.getElementsByClassName("gamenameheading");
+                    var arraygames = Array.from(games);
+                    var arraygameshead = Array.from(gameshead);
+                    
+                    
+                    
+                    arraygames.sort(function(a1,a2){
+                        
+                        let name1 = a1.getElementsByClassName("subgamegenre")[0].innerHTML;
+                        let name2 = a2.getElementsByClassName("subgamegenre")[0].innerHTML;
+                        let price1 = a1.getElementsByClassName("gameprice")[0].innerHTML;
+                        let price2 = a2.getElementsByClassName("gameprice")[0].innerHTML;
+                        if(name1 != name2)
+                        {
+                            return name1.localeCompare(name2);
+                        }else
+                        {
+                            return price1.localeCompare(price2);
+                        }
+
+                        
+                    });
+                    arraygameshead.sort(function(a1,a2){
+                        let name1 = a1.getElementsByClassName("subgamegenre")[0].innerHTML;
+                        let name2 = a2.getElementsByClassName("subgamegenre")[0].innerHTML;
+                        let price1 = a1.getElementsByClassName("gameprice")[0].innerHTML;
+                        let price2 = a2.getElementsByClassName("gameprice")[0].innerHTML;
+                        if(name1 != name2)
+                        {
+                            return name1.localeCompare(name2);
+                        }else
+                        {
+                            return price1.localeCompare(price2);
+                        }
+                    });
+                    
+                    for(let index = 0; index < arraygames.length; index++)
+                    {
+                        arraygameshead[index].parentNode.appendChild(arraygameshead[index]);
+                        arraygames[index].parentNode.appendChild(arraygames[index]);
+                        
+                    }
+                
+                }
+                
+                let btd = document.getElementById("sorteazaDesc");
+                btd.onclick = function(){
+                
+                    var games = document.getElementsByClassName("game");
+                    var gameshead = document.getElementsByClassName("gamenameheading");
+                    var arraygames = Array.from(games);
+                    var arraygameshead = Array.from(gameshead);
+
+
+                    arraygames.sort(function(a1,a2){
+                        
+                        let name1 = a1.getElementsByClassName("subgamegenre")[0].innerHTML;
+                        let name2 = a2.getElementsByClassName("subgamegenre")[0].innerHTML;
+                        let price1 = a1.getElementsByClassName("gameprice")[0].innerHTML;
+                        let price2 = a2.getElementsByClassName("gameprice")[0].innerHTML;
+                        
+                        if(name1 != name2)
+                        {
+                            return name2.localeCompare(name1);
+                        }else
+                        {
+                            return price2.localeCompare(price1);
+                        }
+                    });
+                    arraygameshead.sort(function(a1,a2){
+                        let name1 = a1.getElementsByClassName("subgamegenre")[0].innerHTML;
+                        let name2 = a2.getElementsByClassName("subgamegenre")[0].innerHTML;
+                        let price1 = a1.getElementsByClassName("gameprice")[0].innerHTML;
+                        let price2 = a2.getElementsByClassName("gameprice")[0].innerHTML;
+                        
+                        if(name1 != name2)
+                        {
+                            return name2.localeCompare(name1);
+                        }else
+                        {
+                            return price2.localeCompare(price1);
+                        }
+                    });
+                    
+                    for(let index = 0; index < arraygames.length; index++)
+                    {
+                        arraygameshead[index].parentNode.appendChild(arraygameshead[index]);
+                        arraygames[index].parentNode.appendChild(arraygames[index]);
+                        
+                    }
+                
+                }
+
+                window.onkeydown = function(e)
+                {
+                    if(e.key == "s")
+                    {
+                        var games = document.getElementsByClassName("game");
+                        sum = 0;
+                        for(let index = 0; index < games.length; index++)
+                        {
+                            
+                            sum +=  parseFloat(games[index].getElementsByClassName("gameprice")[0].innerHTML);
+                            
+                        }
+                        
+                        var infosum = document.createElement("div");
+                        infosum.style = "right: 0;bottom: 0;position: fixed;" +
+                        "color:  rgb(var(--text-col));font-size: var(--font-size);"+
+                        "text-shadow: 0.1vw 0.1vw 0.5vw black;"+
+                        "animation-name: disappear;animation-duration: 2s;animation-fill-mode: forwards;";
+                        infosum.innerHTML ="Sum of game prices on page: " + sum + " Euro";
+                        document.getElementById("maini").appendChild(infosum);
+                    }
+                }
+
+                var btf = document.getElementById("reset");
+                    btf.onclick = function()
+                    {
+                        let games = document.getElementsByClassName("game");
+                        let gameshead = document.getElementsByClassName("gamenameheading");
+                        for(let index = 0;index<games.length;index++)
+                        {
+                            
+                            games[index].style.display = "grid";
+                            gameshead[index].style.display = "block";
+                            
+                        }
+                    }
+            }
+            
+        </script>
+        
+    </head>
+    
+
+    <body>
+        
+        <%- include("../fragmente/header") %> <!--afiseaza rezultatul functiei apelate  < % - e functie de ejs  -->
+        
+        <main id="maini">
+            <div class="filters">
+                <label style="color: rgb(var(--highlight-col));padding-left: 35%;"> FILTERS</label>
+                <br>
+                <label style="color: rgb(var(--highlight-col));">NAME: </label><textarea style="height: 1vw;" id="numejoc"></textarea>
+                <br>
+                <br>
+                <label style="color: rgb(var(--highlight-col));">MAX PRICE</label><input type="range" id="pretminmax" value="60" min="0" max="60" oninput="this.nextElementSibling.value = this.value">
+                <output style="color: rgb(var(--highlight-col));">60</output>
+
+                <div class="checks">
+                    <div class="radio" style="color: rgb(var(--highlight-col));"> GENRE: <!-- trebuie sa aiba acelasi name ca sa formeze un grup -->
+                        <label style="color: rgb(var(--highlight-col));">
+                            
+                            <input id="rad1" checked name="gr_rad" value="1" type="radio"/>
+                            Any
+                        </label>
+
+                        <label style="color: rgb(var(--highlight-col));">
+                            
+                            <input id="rad2" name="gr_rad" value="Action" type="radio"/>
+                            Action
+                        </label>
+
+                        <label style="color: rgb(var(--highlight-col));">
+                            
+                            <input id="rad3" name="gr_rad" value="FPS" type="radio"/>
+                            FPS
+                        </label>
+
+                        <label style="color: rgb(var(--highlight-col));">
+                            
+                            <input id="rad4" name="gr_rad" value="Horror" type="radio"/>
+                            Horror
+                        </label>
+
+                        <label style="color: rgb(var(--highlight-col));">
+                            
+                            <input id="rad5" name="gr_rad" value="Indie" type="radio"/>
+                            Indie
+                        </label>
+
+                        <label style="color: rgb(var(--highlight-col));">
+                            
+                            <input id="rad6" name="gr_rad" value="Strategy" type="radio"/>
+                            Strategy
+                        </label>
+                    </div>
+
+                    <div class="checkboxes" style="color: rgb(var(--highlight-col));"> SUB GENRE:
+                        <label style="color: rgb(var(--highlight-col));">
+                            <input id="i_check1" name="gr_chck" checked value="Assassins" type="checkbox"/>
+                            Assassins
+                        </label>
+                        
+                        <label style="color: rgb(var(--highlight-col));">
+                            <input id="i_check2" name="gr_chck" checked value="Modern" type="checkbox"/>
+                            Modern
+                        </label>
+                    
+                        <label style="color: rgb(var(--highlight-col));">
+                            <input id="i_check3" name="gr_chck" checked value="Cartoon" type="checkbox"/>
+                            Cartoon
+                        </label>
+
+                        <label style="color: rgb(var(--highlight-col));">
+                            <input id="i_check4" name="gr_chck" checked value="Medieval" type="checkbox"/>
+                            Medieval
+                        </label>
+
+                        <label style="color: rgb(var(--highlight-col));">
+                            <input id="i_check5" name="gr_chck" checked value="Zombies" type="checkbox"/>
+                            Zombies
+                        </label>
+
+                        <label style="color: rgb(var(--highlight-col));">
+                            <input id="i_check6" name="gr_chck" checked value="Cult" type="checkbox"/>
+                            Cult
+                        </label>
+
+                        <label style="color: rgb(var(--highlight-col));">
+                            <input id="i_check7" name="gr_chck" checked value="Apocalypse" type="checkbox"/>
+                            Apocalypse
+                        </label>
+
+                        <label style="color: rgb(var(--highlight-col));">
+                            <input id="i_check8" name="gr_chck" checked value="Building" type="checkbox"/>
+                            Building
+                        </label>
+                    </div>
+                </div>
+                    
+                <label style="color: rgb(var(--highlight-col));"> OS:
+                    <input id="os" type="text">
+                </label>
+
+                <br>
+                <br>
+
+                <label style="color: rgb(var(--highlight-col));">UNWANTED OS:
+                    <br>
+                    <select id="multipleos" multiple size="3">
+                        <option name="multi" value="Windows">Windows</option>
+                        <option name="multi" value="Linux">Linux</option>
+                        <option name="multi" value="MacOS">MacOS</option>
+                    </select>
+                </label>
+
+                <br>
+                <br>
+
+                <label style="color: rgb(var(--highlight-col));">AGE RESTRICTION:
+                    <select id="age">
+                        <option value="0" selected>No</option>
+                        <option value="1" >Yes</option>
+                    </select>
+                </label>
+
+                <br>
+                <br>
+
+
+
+                <button id="filtreaza">Filter</button>
+                <br>
+                <button id="sorteazaCresc">Sort by subgenre A &#8595</button>
+                <button id="sorteazaDesc">Sort by subgenre Z &#8593</button>
+                <br>
+                <button id="reset">Reset filters</button>
+            
+            </div>
+            
+            <section>
+                <br>
+                <h2>Games</h2>
+                <% for(let ga of locals.games) {%>
+                    <h1 class="gamenameheading">
+                        Name: <a href="/ar_ent_<%- ga.id %>"> <span class="gamename"><%- ga.nume %></span></a>
+                        <span style="display: none;" class="subgamegenre"><%- ga.subgen %></span>
+                        <span style="display: none;" class="gameprice"><%- ga.pret %></span>
+                    </h1>
+                    <article class="game">
+                        
+                        
+                        <div class="col1">
+                            <p>Genre: <span class="gamegenre"><%- ga.gen_principal %></span>     </p>
+                            <img src="/Resurse/Imagini/galerie/<%- ga.imagine %>" alt="Game Image" style="width:40%"/>
+                            <p>Description <br> <span class="gamedesc"><%- ga.descriere %></span>     </p>
+                        </div>
+                        <div class="col2">
+                            <p>Price: <span class="gameprice"><%- ga.pret %> Euro</span>     </p>
+                            <br>
+                            <p>Sub-genre: <span class="subgamegenre"><%- ga.subgen %></span>     </p>
+                            <br>
+                            <p>OS: <span class="gameos"><%- ga.sisteme_de_operare %></span>     </p>
+                            <br>
+                            <p>Release date: <time class="gamedate"><%- ga.data_lansare %></time>     </p>
+                            <br>
+                            <p>Age restriction: <% if(ga.restrictie_varsta) {%>
+                                    <span class="gameage">18+</span>     </p>
+                                <% } else { %>
+                                    <span class="gameage">PG13</span> </p>
+                                <%} %> 
+                        </div>
+                        
+                        
+                        
+                    </article>
+                <% } %> 
+            </section>
+        </main>
+        
+        <br>
+
+        <%- include("../fragmente/footer") %> 
+
+
+        <div class="disclaimer">
+            <p>DISCLAIMER : THIS IS A SCHOOL PROJECT, SO IT IS NOT MEANT TO BE A PRODUCT!</p>
+        </div>
+
+
+
+    </body>
+
+
+</html>

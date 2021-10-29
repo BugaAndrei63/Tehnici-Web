@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        <meta name="keywords" content="games, indie, video games,jocuri, grtais, free, all, promotions, genres, action, horror">
+        <meta name="description" content="Search for your favourite games!">
+        
+        <title><%- locals.games.nume %></title>
+        <%- include("../fragmente/head") %>
+        
+    </head>
+    
+
+    <body>
+        
+        <%- include("../fragmente/header") %> <!--afiseaza rezultatul functiei apelate  < % - e functie de ejs  -->
+        
+        <main>
+                  
+            <article class="singlegame">
+                <h2><span class="gname"><%- locals.games.nume %></span>    </h2>
+                <img class="gimg" src="/Resurse/Imagini/galerie/<%- locals.games.imagine %>" alt="Game Image" media="(max-width:500px)" style="width:50%"/>  
+                
+                <h2 class="infotext">General information</h2>
+                <div class="info1">
+                    <p>Genre: <span class="ggenre"> <%- locals.games.gen_principal %></span>   </p>
+                    <p>Sub genre:  <span class="gsubgenre"><%- locals.games.subgen %></span>   </p>
+                    <p>Price:  <span class="gprice"><%- locals.games.pret %> Euro</span>   </p>
+                </div>
+                
+                <br>
+                <br>
+                <h2 class="infotext">What the game is all about</h2>
+                <div class="info2">
+                    <p>Game description <br>  <span class="gdesc"><%- locals.games.descriere %></span>   </p>
+                </div>
+                
+                <br>
+                <br>
+                <h2 class="infotext">Other information</h2>
+                <div class="info3">
+                    <p>Median gametime:  <span class="ghours"><%- locals.games.ore_jucabile_medie %> hours</span>   </p>
+                    <p>Game size:  <span class="gsize"><%- locals.games.marime %>GB</span>   </p>
+                    <p>Supported OS:  <span class="gos"><%- locals.games.sisteme_de_operare %></span>   </p>
+                    <p>Age restriction:  <% if(locals.games.restrictie_varsta) {%>
+                                        <span class="gameage">18+</span>     </p>
+                                    <% } else { %>
+                                        <span class="gameage">PG13</span> </p>
+                                    <%} %>    </p>
+                </div>
+                
+                
+                
+            </article>
+                
+            
+        </main>
+        
+        <br>
+
+        <%- include("../fragmente/footer") %> 
+
+
+        <div class="disclaimer">
+            <p>DISCLAIMER : THIS IS A SCHOOL PROJECT, SO IT IS NOT MEANT TO BE A PRODUCT!</p>
+        </div>
+
+
+
+    </body>
+
+
+</html>

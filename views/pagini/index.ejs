@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        <meta name="keywords" content="games, indie, video games,jocuri, grtais, free">
+        <meta name="description" content="Share your games with the world! No matter if they're free or tripple A!">
+        
+        <title>IndieChest</title>
+        <%- include("../fragmente/head") %>
+
+    </head>
+    
+
+    <body>
+        
+        <%- include("../fragmente/header") %> <!--afiseaza rezultatul functiei apelate  < % - e functie de ejs  -->
+
+        <h1>IndieChest</h1>
+
+        
+
+        <main class="homemain">
+            <!--EX7-->
+            <!-- ZONA 1-->
+            <article id="about">
+                
+                <hr class="hr1">
+                <hr class="hr2">
+                
+
+                <h2>About IndieChest</h2>
+
+                <p>The site started as a project for our web technologies class and is currently used by only 1 person! Can you imagine that?</p>
+                <!--EX10b-->
+                <p> IndieChest  is a <i>game sharing site</i> where you or your friends can share their hard work with the world!</p>
+                <!--EX10b-->
+
+                <!--EX10a-->
+                <p>Nothing is better than relaxing while playing a <b>free game</b> .</p>
+                <!--EX10a-->
+
+                <!--EX10h-->
+                <p>Remember, no matter what platform you choose, <q>gaming should not be limited by anything!</q> </p>
+                <!--EX10h-->
+                
+                <div class="video_holder">
+                    <!--ETAPA 4 EX5 -->
+                    <!--ETAPA 4 EX7 Custom -->
+                    <video class="video" controls poster="/Resurse/Imagini/poster.jpg" width="360" height="270" preload="auto"  playsinline loop muted>
+                        <source src="/Resurse/Video/gaming.mp4" type="video/mp4" >
+                        <source src="/Resurse/Video/gaming.ogg" type="video/ogg">
+                        <track default src="/Resurse/Video/romanian.vtt" kind="captions" srclang="ro" label="romana">
+                        <track src="/Resurse/Video/english.vtt" kind="captions" srclang="en" label="english">
+                    </video>
+                    <!--ETAPA 4 EX7 Custom -->
+                    <!--ETAPA 4 EX5 -->
+                </div>
+
+                <hr class="hr1">
+                <hr class="hr2">
+
+                <h2><% switch(locals.imagini[0].anotimp) { 
+                     case "iarna": %>
+                        <span>Winter</span>
+                    <%    break; 
+
+                     case "vara": %>
+                        <span>Summer</span>
+                    <%    break;
+
+                     case "primavara": %>
+                        <span>Spring</span>
+                    <%    break;
+
+                     case "toamna": %>
+                        <span>Autumn</span>
+                    <%    break;
+                    
+                 }%>  Games Gallery</h2>
+                <%- include("../fragmente/galerie_statica") %> 
+            </article>
+            <!-- ZONA 1-->
+
+           
+
+            <!-- ZONA 5-->
+
+            <section id="users">
+                <h2>Online users</h2>
+                <p>Online user list:</p>
+            </section>
+
+            <!-- ZONA 5-->
+
+
+            <!-- ZONA 6-->
+            
+            <!--ETAPA 4 EX9 -->
+            <section id="data_users">
+                <h2>User and statistics</h2>
+                <p>Data about users and statistics: <br>IP: <%- ip %></p>
+                 
+                
+            </section>
+            <!--ETAPA 4 EX9 -->
+
+            <!-- ZONA 6-->
+
+
+            <!-- ZONA 7-->
+
+            <section id="data_site_server">
+                <h2>Website and server</h2>
+                <p>Data about site and server</p>
+            </section>
+
+            <!-- ZONA 7-->
+
+
+            <!-- ZONA 4-->
+            <article id="news">
+                <h2>What's going on with us?</h2>
+
+                <p>For the time being there are no news to share :(</p>
+                
+            </article>
+            <!-- ZONA 4-->
+
+
+            <!-- ZONA 3-->
+            <article id="calendar">
+                <h2>Events</h2>
+
+                <p>Calendar</p>
+                
+            </article>
+            <!-- ZONA 3-->
+
+
+            <!-- ZONA 2-->
+            
+            <table id="deals">
+                
+                <caption> <b>DEALS!</b> </caption>
+                
+                <thead>
+                    <tr>
+                        <th>Genre</th>
+                        <th>Title</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>Horror</td>
+                        <td>Spongebob massacre</td>
+                        <td>$9.99(30% off)</td>
+                    </tr>
+                    <tr>
+                        <td>FPS</td>
+                        <td>Call of Tooty</td>
+                        <td>$14.99(50% off)</td>
+                    </tr>
+                    <tr>
+                        <td>RTS</td>
+                        <td>StarCraft 9999</td>
+                        <td>$29.99(20% off)</td>
+                    </tr>
+                </tbody>
+
+                <tfoot>
+                    <tr>
+                        <td colspan="3">Grab 'em while you can! <br> Sale ends on 31/31/9999 25:25 AMPM.</td>
+                    </tr>
+                </tfoot>
+                
+            </table>
+            
+            <!-- ZONA 2-->
+
+
+            <!-- ZONA 8-->
+            <div class="other">
+                <section id="featured">
+                    <h2>Featured weekly game</h2>
+                    <!--EX8-->
+                    <p>Hey, check out our top game for this week!</p>
+
+                    <dl>
+                        <dt>Genre</dt>
+                        <dd>FPS,Action,Multiplayer</dd>
+                        <dt>Our favourite thing about the game </dt>
+                        <dd>The customizations!</dd>    
+                    </dl>
+
+                    <!--EX11-->
+                    <div class="iframe_links">
+                        <a class="ilink" href="https://www.youtube.com/embed/e_E9W2vsRbQ" target="frame"><b>Trailer</b></a> 
+                        <a class="ilink" href="https://www.youtube.com/embed/IhhjcB2ZjIM" target="frame"><b>Gameplay</b></a>
+                    </div>
+                    <iframe name="frame" width="560px" height="315px" src="https://www.youtube.com/embed/e_E9W2vsRbQ" title="Videos"></iframe>
+                    <!--EX11-->
+                    
+                    <!--EX8-->
+                    <article>
+                        <h3> Game description</h3>
+                        <p>Bla bla game is a first person shooter made by bla bla studios, that combines exciting gun play with awesome customizations!</p>
+                    </article>
+
+                </section>
+
+                
+                <hr class="hr1">
+                <hr class="hr2">
+                
+
+                <!--EX12-->
+                <section id="faq">
+                    <h2>F.A.Q</h2>
+
+                    <details>
+                        <summary>
+                            Why choose us?
+                        </summary>
+                        <p>We know there are other competitive platform other than us out there, but the thing we offer is a tight knit community.
+                            <br>
+                            Meaning great customer support with real people, 100% of the game profits to the rightful creators and an easy to use, awesome platform!
+                        </p>
+                    </details>
+
+                    <details>
+                        <summary>
+                            What is the cut the site takes from game sales?
+                        </summary>
+                        <p>0% ,we think the developers need to be rewarded for their awesome work, not us!</p>
+                    </details>
+
+                    <details>
+                        <summary>
+                            How do I get my game on the site?
+                        </summary>
+                        <p>Just create an account and you'll be presented with a step by step tutorial.</p>
+                    </details>
+
+                    <details>
+                        <summary>
+                            What if I want my game to be free?
+                        </summary>
+                        <p>No problem with that, we encourage first timers to have a free game or demo on our website so the people can get a fell for what's to come!</p>
+                    </details>
+
+                </section>
+                
+                <hr class="hr1">
+                <hr class="hr2">
+                
+
+            </div>
+            <!--EX12-->
+
+            <!-- ZONA 8-->
+
+            <!--EX7-->
+        </main>
+        
+        <br>
+        <h2>Animated gallery</h2>
+        <%- include("../fragmente/galerie_animata") %> 
+        <%- include("../fragmente/footer") %> 
+
+        
+        
+        
+
+        <!--EX5-->
+
+        <div class="disclaimer">
+            <p>DISCLAIMER : THIS IS A SCHOOL PROJECT, SO IT IS NOT MEANT TO BE A PRODUCT!</p>
+        </div>
+
+        
+
+    </body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>

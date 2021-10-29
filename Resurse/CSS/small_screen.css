@@ -1,0 +1,213 @@
+@import "general.css";
+body
+{
+    --font-size: 18px;
+
+    
+}
+/*Etapa3 Ex2*/
+body p,td,summary,dd,address
+{
+    color:  rgb(var(--text-col));
+    font-size: var(--font-size);
+    text-shadow: 0.1vw 0.1vw 0.5vw black;
+    
+}
+
+li,dt
+{
+    font-size: var(--font-size);
+}
+
+details > p
+{
+    color: rgb(var(--highlight-col));  
+}
+
+/*Etapa3 Ex2*/
+.homemain
+{
+    display: block;
+    
+}
+
+iframe[name = "frame"]
+{
+    width: 360px;
+    height: auto;
+}
+
+/* DISCLAIMER */
+
+.disclaimer
+{
+  display: none;
+}
+/* DISCLAIMER */
+
+/*Etapa3 Ex8*/
+
+/* TABLE */
+
+#deals
+{
+    display: block;
+    width: 35vw;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    height: 100%;
+    padding: 0;
+    margin: 0 auto;
+}
+
+
+/* TABLE */
+
+/*Etapa3 Ex3*/
+
+/* NAV */
+
+.hamburger
+{
+    display: block;
+}
+
+.menu_container
+{
+    display: none;
+    position: absolute;
+    width: 100%;
+}
+
+.submenu_container
+{
+    position: absolute;
+    display: none;
+    width: 100%;
+}
+
+#burger_check:checked + .menu_container/*, .submenu_container*/
+{
+    display: flex;
+    flex-direction: column;
+
+    animation-name: submenu_animation2;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+}
+
+nav
+{
+    background-color: rgb(var(--UI-col));
+    padding:0;
+    width: 100%;
+    
+}
+
+nav a
+{
+    text-decoration: none;
+}
+
+
+.menu_item
+{
+    text-align: center;
+    flex-direction: column;
+    width: 100%;
+    background-color: rgb(var(--UI-col));
+
+    outline: solid 0.5px;
+    transition: box-shadow 0.2s linear;
+
+    
+}
+
+.menu_item:hover .submenu_container
+{
+    display: block;
+    
+    animation-name: submenu_animation;
+    animation-duration: 0.2s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+
+    
+}
+
+
+.menu_item:hover
+{
+    box-shadow: 0 0 10px 5px rgb(var(--background_col)) inset;
+}
+
+
+.submenu_item
+{
+    
+    list-style-type: none;
+    background-color: rgb(var(--highlight-col));  
+    
+}
+
+
+
+.submenu_item:hover
+{
+
+    box-shadow: 0 0 10px 5px rgb(var(--background_col)) inset;
+}
+
+#burger_check
+{
+    display: none;
+}
+
+.home_icon
+{
+    display: block;
+}
+
+@keyframes submenu_animation2
+{
+    
+    0%
+    {
+        transform-origin : left top;
+        transform : scale(0,0);
+        
+    }
+    100%
+    {
+        transform-origin : left top;
+        transform : scale(1,1);
+        
+    }
+}
+
+/* NAV */
+
+/* galerry */
+.galerie
+{
+    display: block;
+}
+.galerie figcaption
+{
+    color: rgb(var(--text-col));
+    text-shadow: -0.1vw -0.1vw 1vw black;
+    font-size: var(--font-size);
+}
+/* galerry */
+
+.galerie_animata_container
+{
+    display: none;
+}
+
+
+.gamename, .gamegenre, .gameprice
+{
+    font-size: var(--font-size);
+}

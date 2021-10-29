@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        <meta name="keywords" content="games, indie, video games,jocuri, grtais, free, all, promotions, genres, action, horror">
+        <meta name="description" content="Search for your favourite games!">
+        
+        <title>Gallery</title>
+        <%- include("../fragmente/head") %>
+        
+    </head>
+    
+
+    <body>
+        
+        <%- include("../fragmente/header") %> <!--afiseaza rezultatul functiei apelate  < % - e functie de ejs  -->
+        
+        <main>
+            <section>
+                <h2><% switch(locals.imagini[0].anotimp) { 
+                    case "iarna": %>
+                       <span>Winter</span>
+                   <%    break; 
+
+                    case "vara": %>
+                       <span>Summer</span>
+                   <%    break;
+
+                    case "primavara": %>
+                       <span>Spring</span>
+                   <%    break;
+
+                    case "toamna": %>
+                       <span>Autumn</span>
+                   <%    break;
+                   
+                }%>  Games Gallery</h2>
+                <%- include("../fragmente/galerie_statica") %> 
+            </section>
+        </main>
+        
+        <br>
+
+        <%- include("../fragmente/footer") %> 
+
+
+        <div class="disclaimer">
+            <p>DISCLAIMER : THIS IS A SCHOOL PROJECT, SO IT IS NOT MEANT TO BE A PRODUCT!</p>
+        </div>
+
+
+
+    </body>
+
+
+</html>

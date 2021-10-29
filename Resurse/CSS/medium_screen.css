@@ -1,0 +1,99 @@
+@import "general.css";
+body
+{
+    --font-size: 20px;
+
+    
+}
+
+body p,td,summary,dd,address
+{
+    color:  rgb(var(--text-col));
+    font-size: var(--font-size);
+    text-shadow: 0.1vw 0.1vw 0.5vw black;
+    
+}
+
+details > p
+{
+    color: rgb(var(--highlight-col));  
+}
+
+li,dt
+{
+    font-size: var(--font-size);
+}
+
+
+
+iframe[name = "frame"]
+{
+    width: 414px;
+    height: auto;
+}
+
+/* DISCLAIMER */
+
+.disclaimer
+{
+  display: none;
+}
+/* DISCLAIMER */
+
+/*Etapa3 Ex2*/
+.homemain
+{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+
+
+    grid-template-areas: 'one one one one'
+                         'one one one one'
+                         'five five six six'
+                         'seven four four three'
+                         'two two two two'
+                         'eight eight eight eight';
+}
+
+/*Etapa3 Ex3*/
+
+/* NAV */
+
+.home_text
+{
+    display: none;
+}
+
+.home_icon
+{
+    display: inline-block;
+}
+
+/* NAV */
+
+/* galerry */
+.galerie
+{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-row-gap:0.5em;
+    grid-column-gap:0.5em;
+}
+.galerie figcaption
+{
+    color: rgb(var(--text-col));
+    text-shadow: -0.1vw -0.1vw 1vw black;
+    font-size: var(--font-size);
+}
+/* galerry */
+
+.galerie_animata_container
+{
+    display: none;
+}
+
+
+.gamename, .gamegenre, .gameprice
+{
+    font-size: var(--font-size);
+}
